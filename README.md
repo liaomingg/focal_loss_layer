@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## FocalLossLayer
 
 ### Introduction
@@ -26,7 +25,7 @@ If it helps your research, Please consider give me a Star.
     message FocalLossParameter {
         // loss = -alpha * (1 - pk)^gamma * ln(pk)
         // alpha is a parameter which scale the loss
-        optional float alpha = 1 [default = 0.25;
+        optional float alpha = 1 [default = 0.25];
         optional float gamma = 2 [default = 2.00];
     }
     ```
