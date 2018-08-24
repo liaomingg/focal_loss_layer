@@ -13,16 +13,16 @@ namespace caffe {
 				const bool has_ignore_label_, const int ignore_label_,
 				Dtype * counts, const Dtype alpha_, const Dtype gamma_) {
 		CUDA_KERNEL_LOOP(index, nthreads) {
-			const int n = index / spatial_dim; // 商 第几个标签, batch
-			const int s = index % spatial_dim; // 余数 标签中的第几个元素
-			const int label_value = static_cast<int>(label[n * spatial_dim + s]);// label[i * inner_num_ + j]
+			const int n = index / spatial_dim; 
+			const int s = index % spatial_dim; 
+			const int label_value = static_cast<int>(label[n * spatial_dim + s]);
 			if (has_ignore_label_ && label_value == ignore_label_) {
 				loss[index] = 0;
-				counts[index] = 0;// 无效
+				counts[index] = 0;
 			} else {
 				const Dtype pk = max(prob_data[n * dim + label_value * spatial_dim + s], Dtype(FLT_MIN));
 				loss[index] = -1 * alpha_ * powf(1 - pk, gamma_) * log(pk);
-				counts[index] = 1;// 有效
+				counts[index] = 1;
 			}
 		}
 	}
@@ -80,8 +80,8 @@ namespace caffe {
 				}
 				bottom_diff[n * dim + c * spatial_dim + s] = Dtype(
 					-1 * alpha_ * (-1 * gamma_ * pow(1 - pk, gamma_) * pk * log(pk) + pow(1 - pk, gamma_ + 1)));
-				c = c + 1;
-				for (c; c < channels; ++c) {
+				c++;
+				for ( ; c < channels; ++c) {
 					const Dtype pj = max(prob_data[n * dim + c * spatial_dim + s], Dtype(FLT_MIN));
 					bottom_diff[n * dim + c * spatial_dim + s] = Dtype(
 						-1 * alpha_ * (gamma_ * pow(1 - pk, gamma_ - 1) * pk * pj * log(pk) - pow(1 - pk, gamma_) * pj));
