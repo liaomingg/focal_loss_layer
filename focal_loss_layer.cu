@@ -20,7 +20,7 @@ namespace caffe {
 				loss[index] = 0;
 				counts[index] = 0;// 无效
 			} else {
-				const Dype pk = max(prob_data[n * dim + label_value * spatial_dim + s], Dtype(FLT_MIN));
+				const Dtype pk = max(prob_data[n * dim + label_value * spatial_dim + s], Dtype(FLT_MIN));
 				loss[index] = -1 * alpha_ * powf(1 - pk, gamma_) * log(pk);
 				counts[index] = 1;// 有效
 			}
@@ -79,7 +79,7 @@ namespace caffe {
 						-1 * alpha_ * (gamma_ * pow(1 - pk, gamma_ - 1) * pk * pj * log(pk) - pow(1 - pk, gamma_) * pj));
 				}
 				bottom_diff[n * dim + c * spatial_dim + s] = Dtype(
-					-1 * alpha * (-1 * gamma_ * pow(1 - pk, gamma_) * pk * log(pk) + pow(1 - pk, gamma_ + 1)));
+					-1 * alpha_ * (-1 * gamma_ * pow(1 - pk, gamma_) * pk * log(pk) + pow(1 - pk, gamma_ + 1)));
 				c = c + 1;
 				for (c; c < channels; ++c) {
 					const Dtype pj = max(prob_data[n * dim + c * spatial_dim + s], Dtype(FLT_MIN));
