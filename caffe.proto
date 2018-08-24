@@ -1,0 +1,13 @@
+// Add the next contents to message LayerParameter
+message LayerParameter {
+    optional FocalLossParameter focal_loss_param = 151; // select a id.
+}
+
+// Add the next contents to your caffe.proto
+// Message that stores parameter used by FocalLossLayer
+message FocalLossParameter {
+    // loss = -alpha * (1 - pk)^gamma * ln(pk)
+    // alpha is a parameter which scale the loss
+    optional float alpha = 1 [default = 0.25;
+    optional float gamma = 2 [default = 2.00];
+}
