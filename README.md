@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## FocalLossLayer
 
 ### Introduction
@@ -59,3 +60,7 @@ If it helps your research, Please consider give me a Star.
         }
     }
     ```
+=======
+# Focal-Loss
+FocalLossLayer modified from SoftmaxWithLossLayer
+>>>>>>> 6ce3c5f881db682944a63e7dc3c1def12f448aa8
