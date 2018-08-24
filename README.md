@@ -31,11 +31,11 @@ If it helps your research, Please consider give me a Star.
     ```
 
 3. Add source file to your Caffe
-```
+    ```
     Add focal_loss_layer.hpp to Caffe/include/caffe/layers/
     Add focal_loss_layer.cpp to Caffe/src/caffe/layers/
     Add focal_loss_layer.cu to Caffe/src/caffe/layers/
-```
+    ```
 4. Compile your Caffe
 
 ### How to use it ?
