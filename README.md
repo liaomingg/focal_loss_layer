@@ -10,7 +10,7 @@ If it helps your research, Please consider give me a Star.
 
 1. Clone this repository
     ```Shell
-    git clone https://github.com/liaomingg/Focal-Loss.git
+    git clone https://github.com/liaomingg/focal_loss_layer.git
     ```
 
 2. Modify your caffe.proto
