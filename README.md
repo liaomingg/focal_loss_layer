@@ -2,7 +2,7 @@
 
 ### Introduction
 
-FocalLossLayer is midified from SoftmaxWithLossLayer.
+FocalLossLayer is modified from SoftmaxWithLossLayer.
 More info please refer to paper: Focal Loss for Dense Object Detection. 
 If it helps your research, Please consider give me a Star.
 
